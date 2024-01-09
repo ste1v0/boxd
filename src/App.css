@@ -1,0 +1,386 @@
+body {
+    background-color: #000;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.search__form-input:-webkit-autofill,
+.search__form-input:-webkit-autofill:hover,
+.search__form-input:-webkit-autofill:focus,
+.search__form-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px black inset !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hover:hover {
+    opacity: .55;
+    transition: .3s;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+
+.site__title {
+    color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+.search__form {
+    min-width: clamp(150px, 20vw, 350px);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    background: linear-gradient(black, black) padding-box,
+    linear-gradient(to left, #3f5efb, #fc466b) border-box;
+    border-radius: 17px;
+    border: 4px solid transparent;
+}
+
+.search__form-input {
+    min-width: clamp(100px, 25vw, 450px);
+    padding: 10px;
+    border: 0;
+    text-align: center;
+    font-family: inherit;
+    color: whitesmoke;
+    background-color: inherit;
+    font-size: clamp(14px, 2vw, 20px);
+}
+
+.search_form-input-hotkeys {
+    display: flex;
+    margin-right: clamp(10px, 1.5vw, 25px);
+    align-items: center;
+    opacity: .35;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    opacity: .75;
+    color: whitesmoke;
+  }
+
+.search__games-length {
+    color: whitesmoke;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.search__games-length-number {
+    font-style: italic;
+    color: gray;
+}
+
+.search__games {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 5vh, 40px);
+    width: clamp(450px, 50vw, 900px);
+    margin: 0 auto;
+}
+
+.search__game-img {
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700;
+    color: whitesmoke;
+    font-size: 1rem;
+    text-shadow: black 2px 2px;
+    padding: 45px;
+    cursor: pointer;
+}
+
+.search__game-img:hover {
+    border-radius: 25%;
+}
+
+.search__game-vertical-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: clamp(10px, 1vw, 15px);
+}
+
+.search__game {
+    display: flex;
+    gap: clamp(10px, 2vh, 15px);
+    padding: clamp(10px, 3vh, 35px) clamp(20px, 3vw, 50px);
+    background: linear-gradient(black, black) padding-box,
+    linear-gradient(to left, #3f5efb, #fc466b) border-box;
+    border-radius: 17px;
+    border: 4px solid transparent;
+    transition: .3s all;
+}
+
+.search__game:hover {
+    background: rgb(252,70,107);
+    background: linear-gradient(90deg, rgba(252,70,107,1) 0%, rgba(63,94,251,1) 45%);
+    border: 0;
+    transition: .3s all;
+}
+
+.search__game-index {
+    color: whitesmoke;
+    align-self: center;
+    margin-right: clamp(10px, 1vw, 15px);
+    font-size: clamp(20px, 1.5vw, 45px);
+    font-weight: bold;
+}
+
+.search__game-text {
+    display: flex;
+    font-weight: 700;
+    gap: clamp(10px, 1.25vw, 50px);
+    flex-wrap: wrap;
+}
+
+.search__game-title {
+    font-size: clamp(14px, 1.5vw, 28px);
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.search__game-title:hover {
+    color: black;
+}
+
+.search__game-metascore {
+    align-self: center;
+    font-size: 0.8rem;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: #028A0F;
+    color: whitesmoke;
+    margin-left: auto;
+}
+
+.search__game-metascore:hover {
+    color: black;
+}
+
+.search__game-release-year {
+    color: whitesmoke;
+    font-size: .85rem;
+}
+
+.search__game-years-since {
+    color: lightsalmon;
+    font-style: italic;
+    font-size: .85rem;
+    opacity: .7;
+}
+
+.search__game-genres-block {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5vw;
+    flex-wrap: wrap;
+}
+
+.search__game-genre-item {
+    color: whitesmoke;
+    padding: 3px 10px;
+    background: #24272B;
+    border-radius: 10px;
+    font-size: .75rem;
+}
+
+.search__game-platforms-block {
+    display: flex;
+    color: whitesmoke;
+    font-size: 0.75rem;
+    gap: .3vw;
+}
+
+.search__game-platforms {
+    background-position: center;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+}
+.search__game-platforms.macos,
+.search__game-platforms.ios {
+    background-image: url('./assets/macos-light.svg');
+}
+
+.search__game-platforms.pc {
+    background-image: url('./assets/windows.svg');
+}
+
+.search__game-platforms.xbox {
+    background-image: url('./assets/xbox.svg');
+}
+
+.search__game-platforms.playstation {
+    background-image: url('./assets/playstation.svg');
+}
+
+.search__game-platforms.android {
+    background-image: url('./assets/android.svg');
+}
+
+.search__game-platforms.linux {
+    background-image: url('./assets/linux.svg');
+}
+
+.search__game-platforms.web {
+    background-image: url('./assets/web.svg');
+}
+
+.search__game-platforms.nintendo {
+    background-image: url('./assets/nintendo.svg');
+}
+
+.search__game-platforms.wii {
+    background-image: url('./assets/wii.svg');
+}
+
+.search__form-icon {
+    background-image: url('./assets/search.svg');
+    background-position: center;
+    background-size: cover;
+    padding: clamp(10px, 2vh, 10px);
+    margin-left: clamp(10px, 2vw, 15px);
+}
+
+.search__form-input-hotkey {
+    color: whitesmoke;
+    padding: clamp(2px, 5vh, 4px) clamp(3px, 2vw, 7px);
+    border: 1px solid white;
+    border-radius: 7px;
+    font-size: clamp(12px, .7vw, 16px);
+}
+
+.search__form-input-hotkey-plus {
+    margin: 0 clamp(3px, .5vw, 5px);
+    color: whitesmoke;
+}
+
+.search__form-input-reset {
+    background-image: url('./assets/x.svg');
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    padding: clamp(7px, 1vh, 10px);
+    margin-right: clamp(10px, 2vw, 15px);
+}
+
+.gamePage__background {
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.gamePage__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 clamp(30px, 6.25vw, 100px);
+    border: 5px solid greenyellow;
+}
+
+.gamePage__first-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.gamePage__title {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.gamePage__game-pic {
+    width: 100%;
+    height: 20vh;
+    background-position: center;
+    background-size: cover;
+    height: clamp(100px, 6.25vh, 100px);
+    width: clamp(150px, 12vw, 250px);
+}
+
+.gamePage__release-year {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    background: white;
+    border-radius: 10px;
+}
+
+.gamePage__metascore {
+    font-size: 1.5rem;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: #028A0F;
+    color: whitesmoke;
+}
+
+.gamePage__second-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.gamePage__platforms {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gamePage__platforms-item {
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: gray;
+    color: whitesmoke;
+}
+
+.gamePage__third-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.gamePage__genres {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gamePage__genres-item {
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: gray;
+    color: whitesmoke;
+}
+
+.gamePage__playtime-text {
+    color: whitesmoke;
+}
+
+.loader {
+    margin: clamp(50px, 30vh, 450px) auto;
+}
