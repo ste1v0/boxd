@@ -12,7 +12,7 @@ export default function GamePage() {
 
     useEffect(function() {
         if (params.slug) {
-            fetch(`https://api.rawg.io/api/games/${params.slug}?key=e7dd6da8dfcb4aa1885f2ad44e3045bc`)
+            fetch(`https://api.rawg.io/api/games/${params.slug}?key=API_KEY`)
                 .then(res => {
                     if (!res.ok) {
                         throw new Error('Something is wrong with this request')
