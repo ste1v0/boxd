@@ -21,7 +21,7 @@ function App() {
     const delayDebounceFn = setTimeout(() => {
       if (searchTerm) {
         setSearchResults([])
-        fetch(`https://api.rawg.io/api/games?search=${searchTerm}&page_size=25&key=e7dd6da8dfcb4aa1885f2ad44e3045bc`)
+        fetch(`https://api.rawg.io/api/games?search=${searchTerm}&page_size=25&key=API_KEY`)
         .then(res => {
           if (!res.ok) {
             throw new Error('Whoops! Network response was not OK')

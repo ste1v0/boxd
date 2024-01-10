@@ -210,46 +210,48 @@ input::placeholder {
     gap: .3vw;
 }
 
-.search__game-platforms {
+.search__game-platforms,
+.game-page__platforms {
     background-position: center;
     background-size: cover;
     width: 15px;
     height: 15px;
 }
-.search__game-platforms.macos,
-.search__game-platforms.ios {
+
+.macos,
+.ios {
     background-image: url('./assets/macos-light.svg');
 }
 
-.search__game-platforms.pc {
+.pc {
     background-image: url('./assets/windows.svg');
 }
 
-.search__game-platforms.xbox {
+.xbox {
     background-image: url('./assets/xbox.svg');
 }
 
-.search__game-platforms.playstation {
+.playstation {
     background-image: url('./assets/playstation.svg');
 }
 
-.search__game-platforms.android {
+.android {
     background-image: url('./assets/android.svg');
 }
 
-.search__game-platforms.linux {
+.linux {
     background-image: url('./assets/linux.svg');
 }
 
-.search__game-platforms.web {
+.web {
     background-image: url('./assets/web.svg');
 }
 
-.search__game-platforms.nintendo {
+.nintendo {
     background-image: url('./assets/nintendo.svg');
 }
 
-.search__game-platforms.wii {
+.wii {
     background-image: url('./assets/wii.svg');
 }
 
@@ -283,46 +285,81 @@ input::placeholder {
     margin-right: clamp(10px, 2vw, 15px);
 }
 
-.gamePage__background {
+.game-page__background {
     background-position: center;
     background-size: cover;
     height: 100vh;
 }
 
-.gamePage__container {
+.game-page__container {
+    display: grid;
+    grid-template-columns: 0.2fr repeat(3, 1fr) 0.2fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: clamp(0.625rem, 0.284rem + 1.7vw, 1.563rem);
+    grid-row-gap: 0px;
+}
+
+.game-page__left-side {
+    grid-area: 3 / 2 / 6 / 3;
+}
+
+.game-page__platforms-block {
+    display: flex;
+    color: whitesmoke;
+    align-items: center;
+    gap: clamp(0.313rem, 0.199rem + 0.57vw, 0.625rem)
+}
+
+.game-page__title {
+    margin: 0;
+    font-size: clamp(16px, 2.5vw, 40px);
+    text-shadow: 3px 2px black;
+}
+
+.game-page__text {
     display: flex;
     flex-direction: column;
-    margin: 0 clamp(30px, 6.25vw, 100px);
-    border: 5px solid greenyellow;
+    align-items: flex-start;
+    gap: clamp(10px, 1.5vh, 35px);
 }
 
-.gamePage__first-row {
+.game-page__description {
+    color: #99AABB;
+    line-height: 1.5;
+    text-shadow: 1px 1px #333;
+}
+
+.game-page__release-platforms {
     display: flex;
-    flex-direction: row;
+    gap: clamp(5px, 1vw, 25px);
+    align-items: center;
 }
 
-.gamePage__title {
-    margin: 0;
-    font-size: 3rem;
-}
-
-.gamePage__game-pic {
-    width: 100%;
-    height: 20vh;
+.game-page__pic {
+    width: clamp(9.375rem, 4.83rem + 22.73vw, 21.875rem);
+    height: clamp(15.625rem, 11.08rem + 22.73vw, 28.125rem);
     background-position: center;
     background-size: cover;
-    height: clamp(100px, 6.25vh, 100px);
-    width: clamp(150px, 12vw, 250px);
+    border-radius: 7px;
+    align-self: start;
 }
 
-.gamePage__release-year {
-    font-size: 1.5rem;
-    padding: 5px 10px;
+.game-page__release-year {
+    font-size: clamp(.7rem, 1.2vw, 1rem);
     background: white;
     border-radius: 10px;
+    margin: 0;
+    padding: clamp(2px, .3vh, 4px) clamp(5px, .7vw, 10px);
 }
 
-.gamePage__metascore {
+.game-page__platform__item {
+    display: flex;
+    color: whitesmoke;
+    font-size: 0.75rem;
+    gap: .3vw;
+}
+
+.game-page__metascore {
     font-size: 1.5rem;
     padding: 15px;
     border-radius: 10px;
@@ -331,35 +368,11 @@ input::placeholder {
     color: whitesmoke;
 }
 
-.gamePage__second-row {
-    display: flex;
-    flex-direction: row;
+.game-page__center {
+    grid-area: 3 / 3 / 6 / 4;
 }
 
-.gamePage__platforms {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.gamePage__platforms-item {
-    font-size: 1rem;
-    padding: 5px;
-    border-radius: 10px;
-    font-weight: bold;
-    background-color: gray;
-    color: whitesmoke;
-}
-
-.gamePage__third-row {
-    display: flex;
-    flex-direction: row;
-}
-
-.gamePage__genres {
+.game-page__platforms {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -368,7 +381,7 @@ input::placeholder {
     padding: 0;
 }
 
-.gamePage__genres-item {
+.game-page__platforms-item {
     font-size: 1rem;
     padding: 5px;
     border-radius: 10px;
@@ -377,7 +390,30 @@ input::placeholder {
     color: whitesmoke;
 }
 
-.gamePage__playtime-text {
+.game-page__right-side {
+    grid-area: 3 / 4 / 6 / 5;
+    color: whitesmoke;
+}
+
+.game-page__genres {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.game-page__genres-item {
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: gray;
+    color: whitesmoke;
+}
+
+.game-page__playtime-text {
     color: whitesmoke;
 }
 
