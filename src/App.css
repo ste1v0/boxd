@@ -3,6 +3,7 @@ body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     box-sizing: border-box;
+    transition: .2s all;
 }
 
 .search__form-input:-webkit-autofill,
@@ -53,7 +54,7 @@ nav {
     border: 0;
     text-align: center;
     font-family: inherit;
-    color: whitesmoke;
+    color: white;
     background-color: inherit;
     font-size: clamp(14px, 2vw, 20px);
 }
@@ -89,7 +90,7 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     gap: clamp(10px, 5vh, 40px);
-    width: clamp(450px, 50vw, 900px);
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -120,18 +121,15 @@ input::placeholder {
     display: flex;
     gap: clamp(10px, 2vh, 15px);
     padding: clamp(10px, 3vh, 35px) clamp(20px, 3vw, 50px);
-    background: linear-gradient(black, black) padding-box,
-    linear-gradient(to left, #3f5efb, #fc466b) border-box;
-    border-radius: 17px;
-    border: 4px solid transparent;
     transition: .3s all;
+    border-left: rgba(63,94,251,1);
+    border-left: linear-gradient(90deg, rgba(252,70,107,1) 0%, rgba(63,94,251,1) 100%);
 }
 
 .search__game:hover {
-    background: rgb(252,70,107);
-    background: linear-gradient(90deg, rgba(252,70,107,1) 0%, rgba(63,94,251,1) 45%);
-    border: 0;
-    transition: .3s all;
+    border-bottom: 0;
+    border-left: 2.5vw solid transparent;
+    border-radius: 5px;
 }
 
 .search__game-index {
@@ -156,7 +154,7 @@ input::placeholder {
 }
 
 .search__game-title:hover {
-    color: black;
+    color: gray;
 }
 
 .search__game-metascore {
@@ -336,7 +334,7 @@ input::placeholder {
 }
 
 .game-page__pic {
-    width: clamp(9.375rem, 4.83rem + 22.73vw, 21.875rem);
+    max-width: 100%;
     height: clamp(15.625rem, 11.08rem + 22.73vw, 28.125rem);
     background-position: center;
     background-size: cover;
