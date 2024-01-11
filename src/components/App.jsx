@@ -7,9 +7,10 @@ import Hotkeys from 'react-hot-keys'
 
 function App() {
 
+  const [popularGames, setPopularGames] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const maxPlatformsToShow = 3;
 
@@ -18,10 +19,20 @@ function App() {
   }
 
   useEffect(function() {
+    setLoading(true)
+      fetch(`https://api.rawg.io/api/games?dates=2023-01-01,2023-12-31&ordering=-added&key=7700cba9956c47d78b32f85ead983ff8`)
+      .then(res => res.json())
+      .then(data => {
+        setPopularGames(data.results)
+        setLoading(false)
+      })
+  }, [])
+
+  useEffect(function() {
     const delayDebounceFn = setTimeout(() => {
       if (searchTerm) {
         setSearchResults([])
-        fetch(`https://api.rawg.io/api/games?search=${searchTerm}&page_size=25&key=`)
+        fetch(`https://api.rawg.io/api/games?search=${searchTerm}&page_size=25&key=7700cba9956c47d78b32f85ead983ff8`)
         .then(res => {
           if (!res.ok) {
             throw new Error('Whoops! Network response was not OK')
@@ -50,6 +61,10 @@ function App() {
     setSearchTerm(event.target.value)
   }
 
+  function setInput(game) {
+    setSearchTerm(game)
+  }
+
   return (
     <>
       <Hotkeys 
@@ -60,7 +75,7 @@ function App() {
             <h2 className="site__title hover">boxd</h2>
             <form className="search__form">
                 <div className="search__form-icon hover" onClick={focusSearch}></div>
-                <input id="search-input" className="search__form-input" value={searchTerm} placeholder="e.g. Final Fantasy XVI" onChange={(event) => clearResults(event)} />
+                <input id="search-input" className="search__form-input" value={searchTerm} autoComplete="off" placeholder="e.g. Final Fantasy XVI" onChange={(event) => clearResults(event)} />
                 {!searchTerm && <div className="search_form-input-hotkeys hover">
                   <div className="search__form-input-hotkey">alt</div>
                   <span className="search__form-input-hotkey-plus">+</span>
@@ -72,8 +87,22 @@ function App() {
         <div className="user" />
         {searchResults.length > 0 && <h3 className="search__games-length hover">Games <span className="search__games-length-number">{searchResults.length}</span></h3>}
 
+        
+            {!searchTerm && !loading &&
+              <div className="search__most-container">
+                <div className="search__most-left-block">
+                  <h2 className="search__most-title">Most popular</h2>
+                  <span className="search__most-year">2023</span>
+                </div>
+                <div className="search__most-popular-items">
+                  {popularGames.map(e => ( 
+                      <div onClick={()=>setInput(e.name)} className="search__most-item">{e.name}</div>
+                  ))}
+                </div>   
+              </div>
+            }
         <div className="search__games">
-            {searchTerm && loading && <Loader loading={loading}/>}
+        {loading && <Loader loading={loading}/>}
             {searchResults
                 .map((e, index) =>  
                     <div key={uuid()} className="search__game">
@@ -105,7 +134,7 @@ function App() {
                                 {e.genres && e.genres.map(e => <li key={uuid()} aria-label={e.name} className="search__game-genre-item hover">{e.name}</li>)}
                             </ul>
                         </div>
-                        {e.metacritic && <p aria-label={e.metacritic} className='search__game-metascore hover'>{e.metacritic}</p>}
+                        {e.metacritic && <p style={e.metacritic > 74 ? {backgroundColor: 'green'} : e.metacritic > 49 ? {backgroundColor: 'yellow', color: 'black'} : {backgroundColor: 'red'}} aria-label={e.metacritic} className='search__game-metascore hover'>{e.metacritic}</p>}
                     </div>
                 )
             }

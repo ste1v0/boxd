@@ -8,7 +8,7 @@ import App from './components/App.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
       <style>
-      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;400;700&display=swap');
       </style>
   <BrowserRouter>
       <Routes>

@@ -41,6 +41,7 @@ export default function GamePage() {
                         <div className="game-page__container">
                             <div className="game-page__left-side">
                                 <div className="game-page__pic" style={{backgroundImage: `url(${e.background_image})`}}></div>
+                                {gameData && <div style={{color: 'white'}}>{gameData.reddit_url}</div>}
                             </div>
                             <div className="game-page__center">
                                 <div className="game-page__text">
@@ -65,13 +66,7 @@ export default function GamePage() {
                                 </div>
                             </div>
                             <div className="game-page__right-side">
-                                {/* WIP here */}
-
-                                {/* {e.metacritic && <><span className='game-page__metascore'>Metacritic</span><div className='game-page__metascore'>{e.metacritic}</div></>} 
-                                {e.playtime && <><span className='game-page__playtime-text'>Average playtime</span><div className='game-page__metascore'>{e.playtime} hours</div></>} 
-                                <ul className="game-page__genres">
-                                    {e.genres.map(e => <li key={uuid()} className="game-page__genres-item">{e.name}</li>)}
-                                </ul>  */}
+                                <div style={{color: 'white'}}>User actions here</div>
                             </div>
                         </div>
                     </div>
