@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@shoelace-style/shoelace": "^2.12.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
     "dotenv": "^16.3.1",
-    "node": "^21.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-keys": "^2.7.3",
@@ -22,6 +23,7 @@
     "react-uuid": "^2.0.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.0",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react-swc": "^3.5.0",
