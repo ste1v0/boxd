@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import uuid from 'react-uuid'
 import '../App.css'
 
-export default function GamePage() {
+export default function GamePage({setHome, dropdown, setDropdown}) {
 
     const params = useParams()
     const location = useLocation()
@@ -12,6 +12,8 @@ export default function GamePage() {
     const [gameData, setGameData] = useState(null)
 
     useEffect(function() {
+        setHome(false)
+        setDropdown(false)
         if (params.slug) {
             fetch(`https://api.rawg.io/api/games/${params.slug}?key=`)
                 .then(res => {
@@ -32,7 +34,6 @@ export default function GamePage() {
 
     return (
         <>
-        <div style={{display: 'grid'}}>
             {receivedSearchResults
                 .filter(e => e.slug === params.slug)
                 .map(e => (
@@ -63,7 +64,7 @@ export default function GamePage() {
                                                 )}
                                             </div>
                                         </div>
-                                        {gameData && <div className="game-page__description">{gameData.description_raw.match(/[^.!?]+[.!?]+/g).slice(0, 5).join(' ')}</div>}
+                                        {gameData && gameData.description_raw && <div className="game-page__description">{gameData.description_raw.match(/[^.!?]+[.!?]+/g).slice(0, 5).join(' ')}</div>}
                                     </div>
                                 </div>
                                 <div className="game-page__right-side">
@@ -75,7 +76,6 @@ export default function GamePage() {
                     )
                 </div>
             ))}
-        </div>
         </>
     )
 }

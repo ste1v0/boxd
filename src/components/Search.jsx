@@ -1,9 +1,11 @@
+import '../App.css'
 import { Link } from 'react-router-dom'
 
-export default function Search({searchTerm, setSearchTerm, focusSearch, clearInputAndResults, clearResults}) {
+export default function Search({searchTerm, setSearchTerm, focusSearch, clearInputAndResults, clearResults, setHome}) {
 
     function clearSearch() {
         setSearchTerm('')
+        setHome(true)
     }
     return (
         <nav>

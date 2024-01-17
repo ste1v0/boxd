@@ -1,3 +1,4 @@
+import '../App.css'
 import { AtomLoader } from 'react-loaders-kit'
 
 export default function Loader({ loading }) {
